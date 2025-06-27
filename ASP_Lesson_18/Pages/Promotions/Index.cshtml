@@ -1,0 +1,40 @@
+﻿@page
+@model ASP_Lesson_18.Pages.Promotions.IndexModel
+@{
+    ViewData["Title"] = "Список акционных предложений";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Добавить новую акцию</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Категория</th>
+            <th>Страна</th>
+            <th>Дата начала</th>
+            <th>Дата окончания</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Promotions)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.ProductCategory.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Country)</td>
+                <td>@item.StartDate.ToShortDateString()</td>
+                <td>@item.EndDate.ToShortDateString()</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Редактировать</a>
+                    <a asp-page="./Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Подробности</a>
+                    <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

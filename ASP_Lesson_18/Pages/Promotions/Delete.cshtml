@@ -1,0 +1,32 @@
+﻿@page
+@model ASP_Lesson_18.Pages.Promotions.DeleteModel
+@{
+    ViewData["Title"] = "Удалить акционное предложение";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h3>Вы уверены, что хотите удалить эту акцию?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Promotion.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Promotion.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Promotion.Country)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Promotion.Country)
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Promotion.Id" />
+        <input type="submit" value="Удалить" class="btn btn-danger" />
+        <a asp-page="./Index" class="btn btn-secondary">Назад к списку</a>
+    </form>
+</div>

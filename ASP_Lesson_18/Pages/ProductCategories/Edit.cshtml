@@ -1,0 +1,26 @@
+﻿@page
+@model ASP_Lesson_18.Pages.ProductCategories.EditModel
+@{
+    ViewData["Title"] = "Редактировать категорию";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <input type="hidden" asp-for="ProductCategory.Id" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProductCategory.Name" class="control-label"></label>
+                <input asp-for="ProductCategory.Name" class="form-control" />
+                <span asp-validation-for="ProductCategory.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+                <a asp-page="./Index" class="btn btn-secondary">Назад к списку</a>
+            </div>
+        </form>
+    </div>
+</div>

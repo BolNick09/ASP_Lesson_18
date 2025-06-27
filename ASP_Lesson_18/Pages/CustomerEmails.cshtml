@@ -1,0 +1,14 @@
+﻿@page
+@model ASP_Lesson_18.Pages.CustomerEmailsModel
+@{
+    ViewData["Title"] = "Email адреса покупателей";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="list-group">
+    @foreach (var email in Model.Emails)
+    {
+        <a href="mailto:@email" class="list-group-item list-group-item-action">@email</a>
+    }
+</div>

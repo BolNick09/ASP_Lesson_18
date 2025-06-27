@@ -1,0 +1,32 @@
+﻿@page
+@model ASP_Lesson_18.Pages.PromotionsByCountryModel
+@{
+    ViewData["Title"] = $"Акции для страны {Model.Country}";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Название акции</th>
+            <th>Категория</th>
+            <th>Период действия</th>
+            <th>Осталось дней</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Promotions)
+        {
+            var daysLeft = (item.EndDate - DateTime.Today).Days;
+            <tr class="@(daysLeft < 3 ? "table-warning" : "")">
+                <td>@item.Name</td>
+                <td>@item.ProductCategory.Name</td>
+                <td>@item.StartDate.ToShortDateString() - @item.EndDate.ToShortDateString()</td>
+                <td>@((item.EndDate - DateTime.Today).Days)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-page="/AllCountries" class="btn btn-secondary">Назад к списку стран</a>

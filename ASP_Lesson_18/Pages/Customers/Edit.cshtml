@@ -1,0 +1,54 @@
+﻿@page
+@model ASP_Lesson_18.Pages.Customers.EditModel
+@{
+    ViewData["Title"] = "Редактировать покупателя";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <input type="hidden" asp-for="Customer.Id" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Customer.FullName" class="control-label"></label>
+                <input asp-for="Customer.FullName" class="form-control" />
+                <span asp-validation-for="Customer.FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customer.BirthDate" class="control-label"></label>
+                <input asp-for="Customer.BirthDate" type="date" class="form-control" />
+                <span asp-validation-for="Customer.BirthDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customer.Gender" class="control-label"></label>
+                <select asp-for="Customer.Gender" class="form-control">
+                    <option value="Мужской">Мужской</option>
+                    <option value="Женский">Женский</option>
+                </select>
+                <span asp-validation-for="Customer.Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customer.Email" class="control-label"></label>
+                <input asp-for="Customer.Email" class="form-control" />
+                <span asp-validation-for="Customer.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customer.Country" class="control-label"></label>
+                <input asp-for="Customer.Country" class="form-control" />
+                <span asp-validation-for="Customer.Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customer.City" class="control-label"></label>
+                <input asp-for="Customer.City" class="form-control" />
+                <span asp-validation-for="Customer.City" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+                <a asp-page="./Index" class="btn btn-secondary">Назад к списку</a>
+            </div>
+        </form>
+    </div>
+</div>

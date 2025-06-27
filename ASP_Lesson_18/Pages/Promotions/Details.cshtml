@@ -1,0 +1,53 @@
+﻿@page
+@model ASP_Lesson_18.Pages.Promotions.DetailsModel
+@{
+    ViewData["Title"] = "Подробности об акционном предложении";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Promotion.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Promotion.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Promotion.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Promotion.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Promotion.ProductCategory)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Promotion.ProductCategory.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Promotion.Country)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Promotion.Country)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Promotion.StartDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Promotion.StartDate.ToShortDateString()
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Promotion.EndDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Promotion.EndDate.ToShortDateString()
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Promotion.Id" class="btn btn-warning">Редактировать</a>
+    <a asp-page="./Index" class="btn btn-secondary">Назад к списку</a>
+</div>

@@ -1,0 +1,31 @@
+﻿@page
+@model ASP_Lesson_18.Pages.CustomersByCountryModel
+@{
+    ViewData["Title"] = $"Покупатели из страны {Model.Country}";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ФИО</th>
+            <th>Email</th>
+            <th>Город</th>
+            <th>Дата рождения</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Customers)
+        {
+            <tr>
+                <td>@item.FullName</td>
+                <td>@item.Email</td>
+                <td>@item.City</td>
+                <td>@item.BirthDate.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-page="/AllCountries" class="btn btn-secondary">Назад к списку стран</a>

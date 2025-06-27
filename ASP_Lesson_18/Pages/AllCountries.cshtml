@@ -1,0 +1,32 @@
+﻿@page
+@model ASP_Lesson_18.Pages.AllCountriesModel
+@{
+    ViewData["Title"] = "Все страны покупателей";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Страна</th>
+            <th>Количество покупателей</th>
+            <th>Количество акций</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Countries)
+        {
+            <tr>
+                <td>@item.CountryName</td>
+                <td>@item.CustomersCount</td>
+                <td>@item.PromotionsCount</td>
+                <td>
+                    <a asp-page="/CustomersByCountry" asp-route-country="@item.CountryName" class="btn btn-sm btn-info">Покупатели</a>
+                    <a asp-page="/PromotionsByCountry" asp-route-country="@item.CountryName" class="btn btn-sm btn-warning">Акции</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

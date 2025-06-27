@@ -1,10 +1,162 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Главная страница";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Система управления рассылкой акционных предложений</h1>
+    <p class="lead">Выберите раздел для работы</p>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Блок покупателей -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title">Покупатели</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Управление списком покупателей для рассылки акций.</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <a asp-page="/Customers/Index" class="btn btn-outline-primary w-100">Список покупателей</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a asp-page="/Customers/Create" class="btn btn-outline-success w-100">Добавить покупателя</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a asp-page="/AllCustomers" class="btn btn-outline-info w-100">Все покупатели</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a asp-page="/CustomerEmails" class="btn btn-outline-info w-100">Email адреса</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Блок категорий -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-success text-white">
+                    <h5 class="card-title">Категории товаров</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Управление категориями товаров для акционных предложений.</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <a asp-page="/ProductCategories/Index" class="btn btn-outline-success w-100">Список категорий</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a asp-page="/ProductCategories/Create" class="btn btn-outline-success w-100">Добавить категорию</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a asp-page="/AllCategories" class="btn btn-outline-info w-100">Все категории</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Блок акций -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="card-title">Акционные предложения</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Управление текущими и планируемыми акциями.</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <a asp-page="/Promotions/Index" class="btn btn-outline-warning w-100">Список акций</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a asp-page="/Promotions/Create" class="btn btn-outline-success w-100">Добавить акцию</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a asp-page="/AllPromotions" class="btn btn-outline-info w-100">Все акции</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a asp-page="/Promotions/ActivePromotions" class="btn btn-outline-danger w-100">Активные акции</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <!-- Блок отчетов -->
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-info text-white">
+                    <h5 class="card-title">Географические отчеты</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Отчеты по географическому распределению покупателей и акций.</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <a asp-page="/AllCities" class="btn btn-outline-info w-100">Все города</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a asp-page="/AllCountries" class="btn btn-outline-info w-100">Все страны</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a asp-page="/CustomersByCity" asp-route-city="Москва" class="btn btn-outline-secondary w-100">Покупатели Москвы</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a asp-page="/CustomersByCountry" asp-route-country="Россия" class="btn btn-outline-secondary w-100">Покупатели России</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Блок быстрых действий -->
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-secondary text-white">
+                    <h5 class="card-title">Быстрые действия</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Часто используемые функции системы.</p>
+                    <div class="d-grid gap-2">
+                        <a asp-page="/Promotions/Create" class="btn btn-success">Создать новую акцию</a>
+                        <a asp-page="/Customers/Create" class="btn btn-primary">Добавить покупателя</a>
+                        <a asp-page="/ProductCategories/Create" class="btn btn-success">Добавить категорию</a>
+                        <a asp-page="/Promotions/ActivePromotions" class="btn btn-warning">Просмотр активных акций</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Статистика -->
+    <div class="card mt-4">
+        <div class="card-header bg-dark text-white">
+            <h5 class="card-title">Краткая статистика</h5>
+        </div>
+        <div class="card-body">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <h3>@Model.CustomersCount</h3>
+                    <p class="text-muted">Покупателей</p>
+                </div>
+                <div class="col-md-3">
+                    <h3>@Model.CategoriesCount</h3>
+                    <p class="text-muted">Категорий</p>
+                </div>
+                <div class="col-md-3">
+                    <h3>@Model.ActivePromotionsCount</h3>
+                    <p class="text-muted">Активных акций</p>
+                </div>
+                <div class="col-md-3">
+                    <h3>@Model.CountriesCount</h3>
+                    <p class="text-muted">Стран</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

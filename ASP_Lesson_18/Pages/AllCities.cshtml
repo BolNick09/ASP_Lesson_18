@@ -1,0 +1,22 @@
+﻿@page
+@model ASP_Lesson_18.Pages.AllCitiesModel
+@{
+    ViewData["Title"] = "Все города покупателей";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    @foreach (var city in Model.Cities)
+    {
+        <div class="col-md-3 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@city.Key</h5>
+                    <p class="card-text">@city.Value покупателей</p>
+                    <a asp-page="/CustomersByCity" asp-route-city="@city.Key" class="btn btn-primary">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35825.156 d17.13
+VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP_Lesson_18", "ASP_Lesson_18\ASP_Lesson_18.csproj", "{D700FF31-2B45-4FB6-A6EF-C6655A25A1BB}"
 EndProject
